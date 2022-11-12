@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="index.js"></script>
+  <meta charset="UTF-8">
+  <title>Mälukaardid</title>
+</head>
+<body>
+    <body onload="initDict()">  
+    <form id="entry">
+        <label for="front">Esimene Külg:</label><br>
+        <input type="text" id="front" name="front"><br>
+        <label for="back">Tagumine Külg:</label><br>
+        <input type="text" id="back" name="back">
+      </form>
+      <button onclick="addCard(dict)">Sisesta</button>
+      <button onclick="begin(dict)">Alusta</button>
+      <p id="card"></p>
+      <button onclick="flip(dict, result)">Keera</button>
+
+</body>
+</html>
