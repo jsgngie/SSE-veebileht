@@ -1,0 +1,40 @@
+#pealisKast {
+    width:auto;
+    border-radius: 10px;
+    background-color: rgb(72, 199, 249);
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-bottom:30px;
+    font-size: 50px;
+    font-family: monospace;
+    font-weight: bolder;
+    color: beige;
+}
+
+body {
+    background-color: beige;
+}
+
+.esimene, .teine {
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    background-color:rgb(72, 199, 249);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-family: monospace;
+    font-weight: bolder;
+    color: beige;
+    border-radius: 10px;
+    font-size: 30px;
+}
+
+.esimeneTeineBox { white-space: nowrap; padding-top: 4px;}
+
+.esimeneVasak, .esimeneParem {
+    display:inline-block;
+}
+
+.teineVasak, .teineParem {
+    display:inline-block;
+}
