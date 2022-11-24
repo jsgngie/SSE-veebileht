@@ -7,7 +7,6 @@
   <title>Mälukaardid</title>
 </head>
 <body>
-    <body onload="initDict()">
     <div id="pealisKast">Mälukaardid</div>
     <form id="entry">
       <div class="esimeneTeineBox">
@@ -29,10 +28,10 @@
         </div>
       </div>
     </form>
-    <button onclick="addCard(dict)" class="nuppSisesta">Sisesta</button>
-    <button onclick="begin(dict)" class="nuppAlusta">Alusta</button>
+    <button id="sisestaNupp" onclick="addCard(dict)" class="nuppSisesta">Sisesta</button>
+    <button id="alustaNupp" onclick="begin(dict)" class="nuppAlusta">Alusta</button>
     <p id="card"></p>
-    <button onclick="flip(dict, result)" class="nuppKeera">Keera</button>
+    <button id="keeraNupp" onclick="flip(dict, result)" class="nuppKeera" hidden>Keera</button>
     <div class="kaart">
       <!--kaardi värk--> 
     </div>
