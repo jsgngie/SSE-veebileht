@@ -13,6 +13,8 @@
 
 body {
     background-color: beige;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
 }
 
 .esimene, .teine {
@@ -37,4 +39,43 @@ body {
 
 .teineVasak, .teineParem {
     display:inline-block;
+}
+
+/*Muudan päise ilusamaks */
+.header {
+    padding: 80px;
+    text-align: center;
+    background: #48c7f9;
+    color: white;
+}
+/*Muudan päise suurust*/
+.header h1 {
+    font-size: 60px;
+}
+
+/* Navigatsiooni riba */
+.navbar {
+  overflow: hidden;
+  background-color: #333;   
+}
+
+/* Navigatsiooni rea lingid */
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+/* Paremale joondatud link */
+.navbar a.right {
+  float: right;
+}
+
+/* Muuda värvi hõljutamisel */
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
 }
