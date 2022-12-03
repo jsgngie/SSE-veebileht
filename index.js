@@ -53,3 +53,18 @@ function getRandomKey(dict) {
     result = availableKeys[Math.floor(availableKeys.length * Math.random())]
     return result
 }
+
+function laeLinnad() {
+    var input = document.getElementById('fileInput');
+    console.log(input);
+    var reader = new FileReader();
+    reader.onload = function() {
+      var text = reader.result;
+      var lines = text.split('\r\n');
+      for (var i = 0; i < lines.length; i++) {
+        line = lines[i].split(',');
+        dict[line[0]] = line[1];
+    }
+    };
+    reader.readAsText(input.files[0]);
+}
