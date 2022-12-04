@@ -79,3 +79,39 @@ body {
   background-color: #ddd;
   color: black;
 }
+
+#flashcard-container {
+  width: 200px;
+  height: 300px;
+  perspective: 1000px; /* Define perspective to enable 3D space for children */
+  cursor: pointer;
+}
+.flashcard {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d; /* Preserve 3D space for children */
+  transition: transform 0.5s; /* Define transition for smooth rotation */
+}
+.flashcard-front,
+.flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+.flashcard-front {
+  background-color: #ccc;
+  z-index: 2; /* Bring front of card to front */
+}
+.flashcard-back {
+  background-color: #333;
+  color: #fff;
+  transform: rotateY(180deg); /* Rotate back of card by 180 degrees */
+  z-index: 1; /* Send back of card to back */
+}
+.flashcard.flipped {
+  /* Rotate flashcard when flipped class is added */
+  transform: rotateY(180deg);
+}

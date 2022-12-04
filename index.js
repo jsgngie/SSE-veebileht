@@ -15,20 +15,35 @@ function begin(dict) {
     if (Object.keys(dict).length === 0) {
         document.getElementById("card").innerHTML = "Kaarte Pole Lisatud!";
     } else {
-        result = getRandomKey(dict);
-        document.getElementById("card").innerHTML = result;
+      //  document.getElementById("card").innerHTML = result;
         document.getElementById('alustaNupp').style.visibility = 'hidden';
         document.getElementById('sisestaNupp').style.visibility = 'hidden';
         document.getElementById('keeraNupp').removeAttribute("hidden");
-
-        return result
+        flip(dict, "");
     }
 }
 
 function flip(dict, result) {
-    if (document.getElementById("keeraNupp").innerText == "Keera") {
-        document.getElementById("card").innerHTML = dict[result];
+    var flashcard = {
+        front: 'Front of flashcard',
+        back: 'Back of flashcard'
+      };
+    document.getElementById("card").innerHTML = "";
+
+    var flashcardContainer = document.getElementById('flashcard-container');
+    var flashcardElement = flashcardContainer.querySelector('.flashcard');
+    var flashcardFrontElement = flashcardElement.querySelector('.flashcard-front');
+    var flashcardBackElement = flashcardElement.querySelector('.flashcard-back');  
+
+    if (displayedVars.length == 0) {
+        result = getRandomKey(dict);
+        document.getElementById("keeraNupp").innerText = "Keera";
+        flashcardFrontElement.textContent = result;
         displayedVars.push(dict[result])
+    } else if (document.getElementById("keeraNupp").innerText == "Keera") {
+        flashcardBackElement.textContent = dict[result];
+        displayedVars.push(dict[result])
+        flashcardElement.classList.toggle('flipped');
         document.getElementById("keeraNupp").innerText = "Järgmine";
     } else if (document.getElementById("keeraNupp").innerText == "Järgmine") {
         if (Object.keys(dict).length == displayedVars.length) {
@@ -36,15 +51,17 @@ function flip(dict, result) {
             document.getElementById("keeraNupp").innerText = "Alusta Uuesti";
         } else {
             result = getRandomKey(dict);
-            document.getElementById("card").innerHTML = result;
             document.getElementById("keeraNupp").innerText = "Keera";
+            flashcardFrontElement.textContent = result;
+            flashcardElement.classList.toggle('flipped');
         }
     } else if (document.getElementById("keeraNupp").innerText == "Alusta Uuesti") {
         displayedVars = []
         result = getRandomKey(dict);
-        document.getElementById("card").innerHTML = result;
+        flashcardFrontElement.textContent = result;
         document.getElementById("keeraNupp").innerText = "Keera";
-    }
+        flashcardElement.classList.toggle('flipped');
+    } 
 }
 
 function getRandomKey(dict) {
