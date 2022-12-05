@@ -1,15 +1,16 @@
 dict = {}
 displayedVars = [];
 
+// Logic to add cards from inputs to the dictionary.
 function addCard() {
     if (document.getElementById("front").value == "" || document.getElementById("back").value == "") {
         return None
-        //idee poolest peaks ta nüüd tühjasid välju mitte lisama. Pole kindel kas töötab Js täiesti müstika minu jaoks
     }
     dict[document.getElementById("front").value] = document.getElementById("back").value;
     document.getElementById("entry").reset();
 }
 
+// Start Flipping Cards
 function begin() {
     if (Object.keys(dict).length === 0) {
         document.getElementById("card").innerHTML = "Kaarte Pole Lisatud!";
@@ -18,6 +19,7 @@ function begin() {
     }
 }
 
+// Flipping logic
 function flip() {
     var flashcard = {
         front: 'Eesmine Külg',
@@ -32,7 +34,7 @@ function flip() {
 
     if (displayedVars.length == 0) {
         result = getRandomKey(dict);
-        displayedVars.push(dict[result])
+        displayedVars.push(result)
         document.getElementById("keeraNupp").innerText = "Keera";
         flashcardFrontElement.textContent = result;
     } else if (document.getElementById("keeraNupp").innerText == "Keera") {
@@ -45,7 +47,7 @@ function flip() {
             document.getElementById("keeraNupp").innerText = "Alusta Uuesti";
         } else {
             result = getRandomKey(dict);
-            displayedVars.push(dict[result])
+            displayedVars.push(result)
             document.getElementById("keeraNupp").innerText = "Keera";
             flashcardFrontElement.textContent = result;
             flashcardElement.classList.toggle('flipped');
@@ -53,13 +55,14 @@ function flip() {
     } else if (document.getElementById("keeraNupp").innerText == "Alusta Uuesti") {
         displayedVars = []
         result = getRandomKey(dict);
-        displayedVars.push(dict[result])
+        displayedVars.push(result)
         flashcardFrontElement.textContent = result;
         document.getElementById("keeraNupp").innerText = "Keera";
         flashcardElement.classList.toggle('flipped');
     } 
 }
 
+// Pulls random key from the dictionary
 function getRandomKey(dict) {
     keys = Object.keys(dict);
     availableKeys = keys.filter(n => !displayedVars.includes(n))
@@ -67,6 +70,7 @@ function getRandomKey(dict) {
     return result
 }
 
+// Loads in user inputted csv file.
 function laeFail() {
     var input = document.getElementById('fileInput');
     console.log(input);
