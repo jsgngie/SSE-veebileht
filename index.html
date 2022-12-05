@@ -1,54 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <script src="index.js"></script>
-  <link rel="stylesheet" href="style.css">
-  <meta charset="UTF-8">
-  <title>Mälukaardid</title>
-</head>
-<body>
-    <div class="header">
-        <h1 id="pealis">Mälukaardid</h1>
-        <p id="pealis2">Koosta oma mälukaardid ja õpi!</p>
-    </div>
-<div class="navbar">
-    <a href="index.html">Mälukaardid</a>
-    <a href="info.html">Informatsioon</a>
-    <a href="õpetus.html">Kuidas kasutada</a>
-</div>    
-    <form id="entry">
-      <div class="esimeneTeineBox">
-        <div class="esimene">
-          <div class="esimeneVasak">
-            <label for="front" class="esimeseElemendid">Eesmine külg</label>
-          </div>
-          <div class="esimeneParem">
-            <input type="text" id="front" name="front" class="esimeseElemendid">
-          </div>
-        </div>
-        <div class="teine">
-          <div class="teineVasak">
-            <label for="back" class="teiseElemendid">Tagumine külg</label>
-          </div>
-          <div class="teineParem">
-          <input type="text" id="back" name="back" class="teiseElemendid">
-          </div>
-        </div>
+   <head>
+      <script src="index.js"></script>
+      <link rel="stylesheet" href="style.css">
+      <meta charset="UTF-8">
+      <title>Mälukaardid</title>
+   </head>
+   <body>
+      <div class="header">
+         <h1 id="pealis">Mälukaardid</h1>
+         <p id="pealis2">Koosta oma mälukaardid ja õpi!</p>
       </div>
-    </form>
-    <div id="nupud">
-      <button id="sisestaNupp" onclick="addCard()" class="nuppSisesta">Sisesta</button>
-      <button id="alustaNupp" onclick="begin()" class="nuppAlusta">Alusta</button>
-    </div>
-    <p id="card"></p>
-    <button id="keeraNupp" onclick="flip()" hidden>Keera</button>
-    <div id="flashcard-container">
-      <div class="flashcard">
-        <div class="flashcard-front">
-          Front of flashcard
-        </div>
-        <div class="flashcard-back">
-          Back of flashcard
-        </div>
+      <div class="navbar">
+         <a href="index.html">Mälukaardid</a>
+         <a href="info.html">Informatsioon</a>
+         <a href="lisaleht.html">???</a>
       </div>
+      <form id="entry">
+         <div class="esimeneTeineBox">
+            <div class="esimene">
+               <div class="esimeneVasak">
+                  <label for="front" class="esimeseElemendid">Eesmine külg</label>
+               </div>
+               <div class="esimeneParem">
+                  <input type="text" id="front" name="front" class="esimeseElemendid">
+               </div>
+            </div>
+            <div class="teine">
+               <div class="teineVasak">
+                  <label for="back" class="teiseElemendid">Tagumine külg</label>
+               </div>
+               <div class="teineParem">
+                  <input type="text" id="back" name="back" class="teiseElemendid">
+               </div>
+            </div>
+         </div>
+      </form>
+      <div id="nupud">
+         <button id="sisestaNupp" onclick="addCard()" class="nuppSisesta">Sisesta</button>
+         <button id="alustaNupp" onclick="begin()" class="nuppAlusta">Alusta</button>
+      </div>
+      <p id="card"></p>
+      <button id="keeraNupp" onclick="flip()" hidden>Keera</button>
+      <div id="flashcard-container">
+         <div class="flashcard">
+            <div class="flashcard-front">
+               Front of flashcard
+            </div>
+            <div class="flashcard-back">
+               Back of flashcard
+            </div>
+         </div>
+      </div>
+      <div id="csv">
+        <b>Lae oma csv:</b>
+        <br>
+        <input type="file" id="fileInput">
+        <br>
+        <button id="laeFailNupp" onclick="laeFail()" class="nuppLaeFail">Lae Sisse</button>
+      </div>
+   </body>
 </html>
