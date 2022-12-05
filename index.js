@@ -16,8 +16,6 @@ function begin(dict) {
         document.getElementById("card").innerHTML = "Kaarte Pole Lisatud!";
     } else {
       //  document.getElementById("card").innerHTML = result;
-        document.getElementById('alustaNupp').style.visibility = 'hidden';
-        document.getElementById('sisestaNupp').style.visibility = 'hidden';
         document.getElementById('keeraNupp').removeAttribute("hidden");
         flip(dict, "");
     }

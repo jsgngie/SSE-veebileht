@@ -8,8 +8,8 @@
 </head>
 <body>
     <div class="header">
-        <h1>Mälukaardid</h1>
-        <p>Koosta oma mälukaardid ja õpi!</p>
+        <h1 id="pealis">Mälukaardid</h1>
+        <p id="pealis">Koosta oma mälukaardid ja õpi!</p>
     </div>
 <div class="navbar">
     <a href="index.html">Mälukaardid</a>
@@ -36,10 +36,12 @@
         </div>
       </div>
     </form>
-    <button id="sisestaNupp" onclick="addCard(dict)" class="nuppSisesta">Sisesta</button>
-    <button id="alustaNupp" onclick="begin(dict)" class="nuppAlusta">Alusta</button>
+    <div id="nupud">
+      <button id="sisestaNupp" onclick="addCard(dict)" class="nuppSisesta">Sisesta</button>
+      <button id="alustaNupp" onclick="begin(dict)" class="nuppAlusta">Alusta</button>
+    </div>
     <p id="card"></p>
-    <button id="keeraNupp" onclick="flip(dict, result)" class="nuppKeera" hidden>Keera</button>
+    <button id="keeraNupp" onclick="flip(dict, result)" hidden>Keera</button>
     <div id="flashcard-container">
       <div class="flashcard">
         <div class="flashcard-front">
