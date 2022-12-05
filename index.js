@@ -1,30 +1,27 @@
 dict = {}
 displayedVars = [];
 
-function addCard(dict) {
+function addCard() {
     if (document.getElementById("front").value == "" || document.getElementById("back").value == "") {
         return None
         //idee poolest peaks ta nüüd tühjasid välju mitte lisama. Pole kindel kas töötab Js täiesti müstika minu jaoks
     }
     dict[document.getElementById("front").value] = document.getElementById("back").value;
     document.getElementById("entry").reset();
-    return dict;
 }
 
-function begin(dict) {
+function begin() {
     if (Object.keys(dict).length === 0) {
         document.getElementById("card").innerHTML = "Kaarte Pole Lisatud!";
     } else {
-      //  document.getElementById("card").innerHTML = result;
-        document.getElementById('keeraNupp').removeAttribute("hidden");
-        flip(dict, "");
+        flip();
     }
 }
 
-function flip(dict, result) {
+function flip() {
     var flashcard = {
-        front: 'Front of flashcard',
-        back: 'Back of flashcard'
+        front: 'Eesmine Külg',
+        back: 'Tagumine Külg'
       };
     document.getElementById("card").innerHTML = "";
 
@@ -35,12 +32,11 @@ function flip(dict, result) {
 
     if (displayedVars.length == 0) {
         result = getRandomKey(dict);
+        displayedVars.push(dict[result])
         document.getElementById("keeraNupp").innerText = "Keera";
         flashcardFrontElement.textContent = result;
-        displayedVars.push(dict[result])
     } else if (document.getElementById("keeraNupp").innerText == "Keera") {
         flashcardBackElement.textContent = dict[result];
-        displayedVars.push(dict[result])
         flashcardElement.classList.toggle('flipped');
         document.getElementById("keeraNupp").innerText = "Järgmine";
     } else if (document.getElementById("keeraNupp").innerText == "Järgmine") {
@@ -49,6 +45,7 @@ function flip(dict, result) {
             document.getElementById("keeraNupp").innerText = "Alusta Uuesti";
         } else {
             result = getRandomKey(dict);
+            displayedVars.push(dict[result])
             document.getElementById("keeraNupp").innerText = "Keera";
             flashcardFrontElement.textContent = result;
             flashcardElement.classList.toggle('flipped');
@@ -56,6 +53,7 @@ function flip(dict, result) {
     } else if (document.getElementById("keeraNupp").innerText == "Alusta Uuesti") {
         displayedVars = []
         result = getRandomKey(dict);
+        displayedVars.push(dict[result])
         flashcardFrontElement.textContent = result;
         document.getElementById("keeraNupp").innerText = "Keera";
         flashcardElement.classList.toggle('flipped');
@@ -69,7 +67,7 @@ function getRandomKey(dict) {
     return result
 }
 
-function laeLinnad() {
+function laeFail() {
     var input = document.getElementById('fileInput');
     console.log(input);
     var reader = new FileReader();
